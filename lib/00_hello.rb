@@ -1,7 +1,7 @@
-def hello
+require_relative '../lib/hello'
 
-end
-
-def greet(name)
-
+describe "the hello function" do
+  it "says hello" do
+    expect(hello).to eq("Hello world!")
+  end
 end
