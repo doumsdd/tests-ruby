@@ -1,13 +1,7 @@
-describe "temperature conversion functions" do
-  describe "#ftoc" do
-    it "converts body temperature" do
-      expect(ftoc(98.6)).to eq(37)
-    end
-  end
+def ftoc(fahrenheit)
+  (fahrenheit - 32) * Rational(5, 9)
+end
 
-  describe "#ctof" do
-    it "converts body temperature" do
-      expect(ctof(37)).to be_within(0.1).of(98.6)
-    end
-  end
+def ctof(celsius)
+  celsius * Rational(9, 5) + 32
 end
