@@ -1,19 +1,24 @@
-describe 'crazy stuff on strings' do
-  it 'does crazy stuff on strings' do
-    expect(reverse_upcase_noLTA("Tries this at Home, Kids"))
-      .to eq("SDIK ,EMOH  SIH SEIR")
+def who_is_bigger(a, b, c)
+  if [a, b, c].any?(nil)
+    "nil detected"
+  elsif a > b && a > c
+    "a is bigger"
+  elsif b > a && b > c
+    "b is bigger"
+  elsif c > a && c > b
+    "c is bigger"
   end
 end
 
-describe 'crazy stuff on arrays' do
-  it 'does crazy stuff on Arrays' do
-    expect(magic_array([1, 2, 3, 4, 5, 6]))
-      .to eq([2, 4, 8, 10])
-  end
+def reverse_upcase_noLTA(string)
+  string.reverse.upcase.delete("LTA")
 end
 
-describe '42 finder' do
-  it 'finds 42' do
-    expect(array_42([1, 2, 3, 4, 5, 6, 7 , 8, 9, 10])).to eq false
-  end
+def array_42(arr)
+  arr.include?(42)
 end
+
+def magic_array(array)
+  array.flatten.sort.map { |n| n * 2 }.reject { |n| n % 3 == 0 }.uniq.sort
+end
+
